@@ -15,7 +15,7 @@ public class SpaceShip : MonoBehaviour
     public float x;
     public float y;
     public float alpha;
-
+    public float speed;
     void Start()
     {
         flagSize = (GetComponent<SpriteRenderer>().bounds.size) / 2;
@@ -32,7 +32,7 @@ public class SpaceShip : MonoBehaviour
 
 
 
-        HorizontalSpeed = 
+        //HorizontalSpeed = 
     }
 
 
@@ -43,7 +43,7 @@ public class SpaceShip : MonoBehaviour
     void Update()
     {
 
-        transform.position += new Vector3(Input.mousePosition.x* Time.deltaTime, Input.mousePosition.y * Time.deltaTime, 0);
+        transform.position += transform.up * speed * Time.deltaTime;
 
 
 
@@ -52,7 +52,7 @@ public class SpaceShip : MonoBehaviour
         float adjacent = (Input.mousePosition.y - Camera.main.WorldToScreenPoint(transform.position).y);
 
 
-        alpha = (180 - Mathf.Atan2(opposite, adjacent) * (180 / Mathf.PI));
+        alpha =  -Mathf.Atan2(opposite, adjacent) * (180 / Mathf.PI);
         //alpha = Mathf.Atan2(opposite, adjacent) * Mathf.RadToDeg;
 
 

@@ -251,6 +251,7 @@ MonoBehaviour:
   x: 0
   y: 0
   alpha: 0
+  speed: 10
 --- !u!212 &747348868
 SpriteRenderer:
   m_ObjectHideFlags: 0
