@@ -72,7 +72,7 @@ public class SpaceShip : MonoBehaviour
         GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
-        projectileLifetime = (screenSize.x)/40f;
+        projectileLifetime = (screenSize.x)/20f;
 
         rb.velocity = transform.up * projectileSpeed;
         Destroy(projectile, projectileLifetime);
