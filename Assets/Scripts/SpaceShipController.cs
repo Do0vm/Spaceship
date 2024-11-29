@@ -29,13 +29,11 @@ public class SpaceShip : MonoBehaviour
 
     void Update()
     {
-        // Calculate angle to mouse
         float opposite = (Input.mousePosition.x - Camera.main.WorldToScreenPoint(transform.position).x);
         float adjacent = (Input.mousePosition.y - Camera.main.WorldToScreenPoint(transform.position).y);
         alpha = -Mathf.Atan2(opposite, adjacent) * (180 / Mathf.PI);
         transform.rotation = Quaternion.Euler(0f, 0f, alpha);
 
-        // Shooting with cooldown
         if (Input.GetMouseButton(0) && Time.time - lastShotTime > shootCooldown)
         {
             Shoot();
@@ -47,7 +45,6 @@ public class SpaceShip : MonoBehaviour
 
         float distanceToMouse = Vector3.Distance(transform.position, mouseWorldPos);
 
-        // Boost mechanism
         float currentAcceleration = Input.GetKey(KeyCode.LeftShift) ? acceleration * boostMultiplier : acceleration;
 
         if (distanceToMouse > 0.1f)
@@ -63,7 +60,6 @@ public class SpaceShip : MonoBehaviour
             currentSpeed = 0;
         }
 
-        // Screen wrapping
         WrapScreen();
     }
 
@@ -80,13 +76,11 @@ public class SpaceShip : MonoBehaviour
 
     void WrapScreen()
     {
-        // Horizontal wrapping
         if (transform.position.x < -screenSize.x / 2 + shipSize.x / 2)
             transform.position = new Vector3(screenSize.x / 2 - shipSize.x / 2, transform.position.y, 0);
         else if (transform.position.x > screenSize.x / 2 - shipSize.x / 2)
             transform.position = new Vector3(-screenSize.x / 2 + shipSize.x / 2, transform.position.y, 0);
 
-        // Vertical wrapping
         if (transform.position.y < -screenSize.y / 2 + shipSize.y / 2)
             transform.position = new Vector3(transform.position.x, screenSize.y / 2 - shipSize.y / 2, 0);
         else if (transform.position.y > screenSize.y / 2 - shipSize.y / 2)

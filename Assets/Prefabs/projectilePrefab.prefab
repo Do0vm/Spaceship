@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 306129750055629926}
   - component: {fileID: 7990837834740226093}
+  - component: {fileID: 3528135446435670306}
   m_Layer: 0
   m_Name: projectilePrefab
   m_TagString: Laser
@@ -60,6 +61,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3528135446435670306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694253925583286996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b5ce785e80554cb850118cf81fb3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.29
+  isLaserBeam: 1
+  isAsteroid: 0
+  mediumAsteroidPrefab: {fileID: 0}
+  smallAsteroidPrefab: {fileID: 0}
+  isDestroyGizmo: 1
 --- !u!1 &6756143560830625251
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,3 +178,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.2
   trackedObject: {fileID: 0}
+  Asteroid: {fileID: 0}
