@@ -93,7 +93,9 @@ public class AsteroidCollision : MonoBehaviour
             if (squareDistance < (radius + asteroid.radius) * (radius + asteroid.radius))
             {
                 Debug.Log("Spaceship hit an asteroid. Game Over!");
-                SceneManager.LoadScene("GameOver"); 
+                smallAsteroidsDestroyed = 0;
+                SceneManager.LoadScene("GameOver");
+                
                 break; 
             }
         }
@@ -177,7 +179,7 @@ public class AsteroidCollision : MonoBehaviour
     private void OnWinConditionMet()
     {
         Debug.Log("You Won!");
-
+        smallAsteroidsDestroyed = 0;
         SceneManager.LoadScene("YouWon");
     }
 
